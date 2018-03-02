@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import model.Player;
 
 public class PlayerHelper {
-	EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("bowlingleaguestevens");
+	EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BowlingLeagueStevens");
 
 	public void addPlayer(Player toAdd) {
 		// TODO Auto-generated method stub

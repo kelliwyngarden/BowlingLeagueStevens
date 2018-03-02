@@ -21,7 +21,7 @@ public class Player {
 	private String firstName;
 	@Column(name = "lastName")
 	private String lastName;
-	@Column(name = "phoneName")
+	@Column(name = "phoneNumber")
 	private String phoneNumber;
 	@Column(name = "screenName")
 	private String screenName;
