@@ -11,6 +11,7 @@ public class PlayerHelper {
 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BowlingLeagueStevens"); 
 	
 
+
 	public void insertPlayer(Player tm) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
