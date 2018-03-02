@@ -13,7 +13,7 @@ import model.Team;
 /**
  * Servlet implementation class AddPlayerServlet
  */
-@WebServlet("/AddPlayerServlet")
+@WebServlet("/addPlayerServlet")
 public class addPlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

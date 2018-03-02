@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewAllPlayersServlet
+ * Servlet implementation class viewAllPlayersServlet
  */
-@WebServlet("/ViewAllPlayersServlet")
+@WebServlet("/viewAllPlayersServlet")
 public class viewAllPlayersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,14 +29,12 @@ public class viewAllPlayersServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		PlayerHelper dao = new PlayerHelper();
 		
-		request.setAttribute("allPlayers",dao.showAllPlayers());
-		
+		request.setAttribute("allPlayers", dao.showAllPlayers());
 		if(dao.showAllPlayers().isEmpty()) {
-			request.setAttribute("allPlayers"," ");
+			request.setAttribute("allPlayers", " ");
 		}
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllPlayers.jsp").forward(request, response);
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
