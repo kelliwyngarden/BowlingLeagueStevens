@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method = "post" action = "viewAllTeamsServlet">
+<form method = "post" action = "alterTeamServlet">
 	<table>
 	<c:forEach items = "${requestScope.allTeams}" var = "currentteam">
 	<tr>
@@ -19,8 +19,8 @@
 	</tr>
 	</c:forEach>
 	</table>
-	<input type = "submit" value = "Delete Selected Team" name = "doThisToTeam">
-	<input type = "submit" value = "Add New Team" name = "doThisToTeam">
+	<input type = "submit" value = "Delete Team" name = "doThisToTeam">
+	<input type = "submit" value = "Add Team" name = "doThisToTeam">
 	</form>
 </body>
 </html>
