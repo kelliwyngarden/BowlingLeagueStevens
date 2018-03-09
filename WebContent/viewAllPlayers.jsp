@@ -8,7 +8,7 @@
 <title>View All Players</title>
 </head>
 <body>
-<form method = "post" action = "viewAllPlayersServlet">
+<form method = "post" action = "alterPlayerServlet">
 	<table>
 	<c:forEach items = "${requestScope.allPlayers}" var = "currentplayer">
 	<tr>
@@ -20,8 +20,8 @@
 	</tr>
 	</c:forEach>
 	</table>
-	<input type = "submit" value = "Delete Selected Player" name = "doThisToPlayer">
-	<input type = "submit" value = "Add New Player" name = "doThisToPlayer">
-	</form>
+	<input type = "submit" value = "Delete Player" name = "doThisToPlayer">
+	<input type = "submit" value = "Add Player" name = "doThisToPlayer">
+</form>
 </body>
 </html>

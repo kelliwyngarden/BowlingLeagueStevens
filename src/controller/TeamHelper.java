@@ -29,15 +29,12 @@ public class TeamHelper {
 		em.close();
 		return allTeamsWithPlayers;
 	}
-	public void deleteTeams(Team toDelete) {
+	public void deleteTeam(Team toDelete) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Team> typedQuery = em.createQuery("select t from Team t where t.teamName = :selectedTeamName",Team.class);
-		typedQuery.setParameter("selectedTeamName", toDelete.getTeamName());
-		typedQuery.setMaxResults(1);
-		Team result = typedQuery.getSingleResult();
-		em.remove(result);
+		Team find = em.find(Team.class, toDelete.getId());
+		em.remove(find);
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -50,5 +47,13 @@ public class TeamHelper {
 		Team result = typedQuery.getSingleResult();
 		em.close();
 		return result;
+	}
+	public Team searchForTeamById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Team foundTeam = em.find(Team.class, idToEdit);
+		em.close();
+		return foundTeam;
 	}
 	}
