@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewAllTeamsWithPlayersServlet
+ * Servlet implementation class viewAllTeamServlet
  */
-@WebServlet("/ViewAllTeamsWithPlayersServlet")
-public class viewAllTeamsWithPlayersServlet extends HttpServlet {
+@WebServlet("/viewAllTeamServlet")
+public class viewAllTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public viewAllTeamsWithPlayersServlet() {
+    public viewAllTeamServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +29,12 @@ public class viewAllTeamsWithPlayersServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		TeamHelper dao = new TeamHelper();
 		
-		request.setAttribute("allTeamsWithPlayers",dao.showAllTeamsWithPlayers());
-		
-		if(dao.showAllTeamsWithPlayers().isEmpty()) {
-			request.setAttribute("allTeamWithPlayers"," ");
+		request.setAttribute("allTeams", dao.showAllTeams());
+		if(dao.showAllTeams().isEmpty()) {
+			request.setAttribute("allTeams", " ");
 		}
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllTeams.jsp").forward(request, response);
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

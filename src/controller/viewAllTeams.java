@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class viewAllPlayersServlet
+ * Servlet implementation class viewAllTeamsServlet
  */
-@WebServlet("/viewAllPlayersServlet")
-public class viewAllPlayersServlet extends HttpServlet {
+@WebServlet("/viewAllTeamsServlet")
+public class viewAllTeams extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public viewAllPlayersServlet() {
+    public viewAllTeams() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,14 +27,17 @@ public class viewAllPlayersServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PlayerHelper dao = new PlayerHelper();
+		TeamHelper dao = new TeamHelper();
+
+		request.setAttribute("allTeams", dao.showAllTeams());
 		
-		request.setAttribute("allPlayers", dao.showAllPlayers());
-		if(dao.showAllPlayers().isEmpty()) {
-			request.setAttribute("allPlayers", " ");
+		if(dao.showAllTeams().isEmpty()) {
+			request.setAttribute("allTeams"," ");
 		}
-		getServletContext().getRequestDispatcher("/viewAllPlayers.jsp").forward(request, response);
+		
+		getServletContext().getRequestDispatcher("/viewAllTeams.jsp").forward(request, response);
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

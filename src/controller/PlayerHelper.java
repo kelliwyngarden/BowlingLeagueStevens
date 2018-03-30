@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import model.Player;
 
 public class PlayerHelper {
-	EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("bowlingleaguestevens");
+	EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BowlingLeagueStevens");
 
 	public void addPlayer(Player toAdd) {
 		// TODO Auto-generated method stub
@@ -31,18 +31,23 @@ public class PlayerHelper {
 		return allPlayers;
 	}
 
-	public void deletePlayers(Player toDelete) {
+	public void deletePlayer(Player toDelete) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Player> typedQuery = em.createQuery("select p from Player p where p.firstName = :selectedFirstName and p.lastName = :selectedLastName",Player.class);
-		typedQuery.setParameter("selectedFirstName", toDelete.getFirstName());
-		typedQuery.setParameter("selectedLastName", toDelete.getLastName());
-		typedQuery.setMaxResults(1);
-		Player result = typedQuery.getSingleResult();
-		em.remove(result);
+		Player find = em.find(Player.class, toDelete.getPlayerId());
+		em.remove(find);
 		em.getTransaction().commit();
 		em.close();
 	
 	}
+	public Player searchForPlayerById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Player foundPlayer = em.find(Player.class, idToEdit);
+		em.close();
+		return foundPlayer;
+	}
+
 }
